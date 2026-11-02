@@ -4,7 +4,7 @@ Rent your first UK home with your PayPal history. (Formerly Credit Passport.)
 
 ![Landed welcome screen](docs/screenshots/1-welcome.png)
 
-**Live demo:** https://credit-passport-paypal.vercel.app (synthetic data and PayPal sandbox only).
+**Live demo:** https://landed-paypal.vercel.app (synthetic data and PayPal sandbox only).
 
 Built in one evening at a fintech hackathon in London on 13 October 2026, hosted by Singapore Global Network and LSE Generate.
 
@@ -91,9 +91,9 @@ flowchart LR
 
 Streamlit and the command line share Python parsing and rules modules; PDF extraction sends statement text to Anthropic, and the browser separately requests a rate from Frankfurter. The web flow saves issued summaries in `data/issued.json`, while simulated bank connections read local fixtures. Upload bytes remain in Streamlit session state and parsed results are cached without an application-defined expiry; there is no separate backend API or database server.
 
-See [ARCHITECTURE.md](ARCHITECTURE.md) for the data model, rule details and implementation limits, or open the [interactive architecture map](https://younis-y.github.io/credit-passport-demo/). The map's [editable JSON](docs/diagrams/credit-passport.architecture.json) records its components and source references.
+See [ARCHITECTURE.md](ARCHITECTURE.md) for the data model, rule details and implementation limits, or open the [interactive architecture map](https://younis-y.github.io/landed/). The map's [editable JSON](docs/diagrams/landed.architecture.json) records its components and source references.
 
-The [map publishing workflow](.github/workflows/architecture-pages.yml) publishes only the HTML diagram, to GitHub Pages at [younis-y.github.io/credit-passport-demo](https://younis-y.github.io/credit-passport-demo/). The hosted page loaded on 13 October 2026.
+The [map publishing workflow](.github/workflows/architecture-pages.yml) publishes only the HTML diagram, to GitHub Pages at [younis-y.github.io/landed](https://younis-y.github.io/landed/). The hosted page loaded on 13 October 2026.
 
 ## Installation
 
@@ -102,10 +102,10 @@ Use Python 3.13 to match the CI configuration, plus Git and access to the config
 From a terminal on macOS or Linux:
 
 ```sh
-git clone https://github.com/younis-y/credit-passport-demo.git
-cd credit-passport-demo
-python3.13 -m venv ../credit-passport-venv
-source ../credit-passport-venv/bin/activate
+git clone https://github.com/younis-y/landed.git
+cd landed
+python3.13 -m venv ../landed-venv
+source ../landed-venv/bin/activate
 python -m pip install -r requirements-streamlit.txt -r requirements-dev.txt
 python -m pytest -q
 ```
@@ -142,7 +142,7 @@ The web result automatically saves its summary and supplies a code such as `CP-X
 ### Command-line demonstration
 
 ```sh
-python -m passport samples/genuine.csv --pdf /tmp/credit-passport-demo.pdf
+python -m passport samples/genuine.csv --pdf /tmp/landed-demo.pdf
 python -m passport samples/tampered.csv
 ```
 
@@ -197,9 +197,9 @@ PDF extraction sends the entire extracted statement text to Anthropic. Scanned P
 | Edited CSV | [samples/tampered.csv](samples/tampered.csv) |
 | Missed-rent CSV | [samples/missed_rent.csv](samples/missed_rent.csv) |
 | Indian-rupee CSV | [samples/india.csv](samples/india.csv) |
-| Interactive system map | [Open the Archify map](https://younis-y.github.io/credit-passport-demo/) |
+| Interactive system map | [Open the Archify map](https://younis-y.github.io/landed/) |
 | Application screenshots | Below, from the fictional demo data |
-| Public deployment | The architecture map is hosted on GitHub Pages; the application itself runs locally |
+| Public deployment | App: https://landed-paypal.vercel.app · architecture map: GitHub Pages |
 
 | An edited statement is caught | A passport is issued |
 | --- | --- |
@@ -269,7 +269,7 @@ These are proposed improvements, not scheduled commitments:
 
 ## Contributing
 
-Use the [repository issue tracker](https://github.com/younis-y/credit-passport-demo/issues) to describe a reproducible problem or proposed change, then submit a focused [pull request](https://github.com/younis-y/credit-passport-demo/pulls). Run `python -m pytest -q` before submission and update these documents when behaviour changes.
+Use the [repository issue tracker](https://github.com/younis-y/landed/issues) to describe a reproducible problem or proposed change, then submit a focused [pull request](https://github.com/younis-y/landed/pulls). Run `python -m pytest -q` before submission and update these documents when behaviour changes.
 
 Add regression tests for parsing or rule changes. Use fictional statements in tests, screenshots and issues; do not include real account details or API keys. Keep the distinction between arithmetic consistency and source authenticity explicit.
 
@@ -283,4 +283,4 @@ Built by Younis Younis and Dave Cheng, with the Flask/Vercel demo and CSV valida
 
 ## Contact / Support
 
-The configured project repository is [Credit Passport on GitHub](https://github.com/younis-y/credit-passport-demo). Use its issue tracker for non-sensitive questions where available. A maintainer contact address, private support channel and support commitments have not been supplied.
+The configured project repository is [Landed on GitHub](https://github.com/younis-y/landed). Use its issue tracker for non-sensitive questions where available. A maintainer contact address, private support channel and support commitments have not been supplied.

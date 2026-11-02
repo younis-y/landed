@@ -40,7 +40,7 @@ Run `python scripts/generate_demo_data.py` to regenerate the bundled CSVs, manif
 
 Verified on 29 October 2026 (PayPal version):
 
-- Production URL: https://credit-passport-paypal.vercel.app, Vercel project `younis11/credit-passport`, deployment `dpl_G4vx9ciymuQoC9jQJ2mL2Wg3oXJr`. Deployment Protection is off so judges need no Vercel login. `PAYPAL_CLIENT_ID` and `PAYPAL_CLIENT_SECRET` are set as sensitive production variables.
+- Production URL: https://landed-paypal.vercel.app, Vercel project `younis11/landed`, deployment `dpl_G4vx9ciymuQoC9jQJ2mL2Wg3oXJr`. Deployment Protection is off so judges need no Vercel login. `PAYPAL_CLIENT_ID` and `PAYPAL_CLIENT_SECRET` are set as sensitive production variables.
 - Local suite: 106 tests passed.
 - Checkout: a GBP 250 sandbox deposit was approved by a sandbox personal account and captured (capture `0VS24437EK787293J`, COMPLETED, net GBP 241.30). In production, PayPal's cancel link returned to the https production URL with the cancellation notice.
 - Transaction Search: authorised. The sandbox account then held one transaction, so the import correctly refused to build a statement until more history exists. PayPal's reporting data lags new payments by up to a few hours.

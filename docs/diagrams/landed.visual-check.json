@@ -6,7 +6,7 @@
   "status": "pass",
   "visualReview": "pending",
   "artifact": {
-    "path": "docs/diagrams/credit-passport.html",
+    "path": "docs/diagrams/landed.html",
     "sha256": "fd2c770122ac06cef2a6fa809c69d2a1fedfee86b1bd964120266351c6b047e2",
     "bytes": 817896
   },
@@ -440,7 +440,7 @@
         "viewerChromeActive": true,
         "viewerChromeOk": true,
         "resolvedTheme": "light",
-        "file": "credit-passport.visual-check.1440x900.light.png"
+        "file": "landed.visual-check.1440x900.light.png"
       },
       {
         "width": 1440,
@@ -472,7 +472,7 @@
         "viewerChromeActive": true,
         "viewerChromeOk": true,
         "resolvedTheme": "dark",
-        "file": "credit-passport.visual-check.1440x900.dark.png"
+        "file": "landed.visual-check.1440x900.dark.png"
       },
       {
         "width": 2048,
@@ -504,7 +504,7 @@
         "viewerChromeActive": true,
         "viewerChromeOk": true,
         "resolvedTheme": "light",
-        "file": "credit-passport.visual-check.2048x1320.light.png"
+        "file": "landed.visual-check.2048x1320.light.png"
       },
       {
         "width": 2048,
@@ -536,14 +536,14 @@
         "viewerChromeActive": true,
         "viewerChromeOk": true,
         "resolvedTheme": "dark",
-        "file": "credit-passport.visual-check.2048x1320.dark.png"
+        "file": "landed.visual-check.2048x1320.dark.png"
       }
     ],
-    "contactSheet": "credit-passport.visual-check.html"
+    "contactSheet": "landed.visual-check.html"
   },
   "sidecars": {
-    "receipt": "credit-passport.visual-check.json",
-    "contactSheet": "credit-passport.visual-check.html"
+    "receipt": "landed.visual-check.json",
+    "contactSheet": "landed.visual-check.html"
   },
   "publication": {
     "path_format": "repository-root-relative",

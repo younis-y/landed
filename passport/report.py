@@ -69,7 +69,7 @@ def build_pdf(passport, currency, rate, rate_source, applicant="", code="", sour
                                   "Only the supplied balance rows are checked; the opening balance has no independent check.", cell)] if demo else []),
         Spacer(1, 10),
         *([Paragraph(f"<b>Verification code: {code}</b>", styles["Normal"]),
-           Paragraph("Landlords: enter this code in Credit Passport under \"Verify a passport\" to see the summary "
+           Paragraph("Landlords: enter this code in Landed under \"Verify a passport\" to see the summary "
                      "as it was issued. If the figures there differ from this page, this page has been altered.", cell),
            Spacer(1, 10)] if code else []),
         Paragraph((f"1 {escape(currency)} = £{rate:.4f} ({escape(rate_source)}). " if rate is not None else "No currency conversion applied. ")

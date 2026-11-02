@@ -3,8 +3,8 @@
   "ok": true,
   "command": "deliver",
   "type": "architecture",
-  "input": "docs/diagrams/credit-passport.architecture.json",
-  "output": "docs/diagrams/credit-passport.html",
+  "input": "docs/diagrams/landed.architecture.json",
+  "output": "docs/diagrams/landed.html",
   "specification": {
     "sha256": "5bbe79262761e5c4ce321ceb72c5ed1a3587545f3cacbb9843045e8f5965cd7f",
     "bytes": 9382
@@ -23,7 +23,7 @@
   },
   "evidence": {
     "verified": true,
-    "repository": "https://github.com/younis-y/credit-passport",
+    "repository": "https://github.com/younis-y/landed",
     "revision": "83cafd68ba6608b8ce906668bff380ce9fdf0f94",
     "references": 17
   },

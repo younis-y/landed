@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - docs/diagrams/credit-passport.html
+      - docs/diagrams/landed.html
       - .github/workflows/architecture-pages.yml
   workflow_dispatch:
 
@@ -40,10 +40,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          source_file=docs/diagrams/credit-passport.html
+          source_file=docs/diagrams/landed.html
           test -f "$source_file"
           test ! -L "$source_file"
-          site_dir=$(mktemp -d "${RUNNER_TEMP}/credit-passport-pages.XXXXXX")
+          site_dir=$(mktemp -d "${RUNNER_TEMP}/landed-pages.XXXXXX")
           cp "$source_file" "$site_dir/index.html"
           test "$(find "$site_dir" -mindepth 1 -maxdepth 1 | wc -l | tr -d ' ')" = 1
           printf 'path=%s\n' "$site_dir" >> "$GITHUB_OUTPUT"

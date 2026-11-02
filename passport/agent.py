@@ -74,7 +74,7 @@ class _Guard:
         self.series = set()
         self.result = {"approve_url": None, "deposit": None, "series_id": None, "series_active": False}
         self.api = PayPalAPI(os.environ["PAYPAL_CLIENT_ID"], os.environ["PAYPAL_CLIENT_SECRET"],
-                             Context(sandbox="sandbox" in paypal.API_BASE, source="credit-passport"))
+                             Context(sandbox="sandbox" in paypal.API_BASE, source="landed"))
 
     def run(self, name, args):
         if name == "hold_deposit":

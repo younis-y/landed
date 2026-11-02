@@ -2,11 +2,11 @@
   "schema_version": 1,
   "diagram_type": "architecture",
   "meta": {
-    "title": "Credit Passport",
+    "title": "Landed",
     "locale": "en",
     "quality_profile": "showcase",
     "repository": {
-      "url": "https://github.com/younis-y/credit-passport",
+      "url": "https://github.com/younis-y/landed",
       "revision": "83cafd68ba6608b8ce906668bff380ce9fdf0f94",
       "provider": "github"
     },

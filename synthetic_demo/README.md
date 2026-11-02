@@ -1,4 +1,4 @@
-# Credit Passport synthetic test pack
+# Landed synthetic test pack
 
 Every row is entirely fictional. No real person, bank, account number, employer,
 merchant or bank connection is represented. The default currency is **SGD**.

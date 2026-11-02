@@ -2,12 +2,12 @@
   "schemaVersion": 1,
   "diagram_type": "architecture",
   "artifact": {
-    "file": "credit-passport.html",
+    "file": "landed.html",
     "sha256": "fd2c770122ac06cef2a6fa809c69d2a1fedfee86b1bd964120266351c6b047e2",
     "bytes": 817896
   },
   "specification": {
-    "file": "credit-passport.architecture.json",
+    "file": "landed.architecture.json",
     "sha256": "5bbe79262761e5c4ce321ceb72c5ed1a3587545f3cacbb9843045e8f5965cd7f",
     "bytes": 9382
   },
@@ -15,14 +15,14 @@
   "repository_revision": "83cafd68ba6608b8ce906668bff380ce9fdf0f94",
   "validation": "9/9 showcase, 0 errors, 0 warnings",
   "browser_evidence": "passed",
-  "browser_evidence_receipt": "credit-passport.visual-check.json",
+  "browser_evidence_receipt": "landed.visual-check.json",
   "visual_review": "passed",
   "review_method": "Image-capable review of all four screenshots produced by the artifact-bound visual-check command.",
   "reviewed_screenshots": [
-    "credit-passport.visual-check.1440x900.light.png",
-    "credit-passport.visual-check.1440x900.dark.png",
-    "credit-passport.visual-check.2048x1320.light.png",
-    "credit-passport.visual-check.2048x1320.dark.png"
+    "landed.visual-check.1440x900.light.png",
+    "landed.visual-check.1440x900.dark.png",
+    "landed.visual-check.2048x1320.light.png",
+    "landed.visual-check.2048x1320.dark.png"
   ],
   "observations": [
     "All eleven nodes and all three context cards fit in both themes at the two screenshot sizes.",

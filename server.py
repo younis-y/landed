@@ -290,7 +290,7 @@ def create_app():
 
     @app.get("/samples/download.zip")
     def download_bundle():
-        return send_file(DEMO_DIR / "credit-passport-synthetic-demo.zip", mimetype="application/zip", as_attachment=True)
+        return send_file(DEMO_DIR / "landed-synthetic-demo.zip", mimetype="application/zip", as_attachment=True)
 
     @app.post("/api/analyse")
     def analyse():
@@ -350,7 +350,7 @@ def create_app():
                 selected.get("report_source", "Synthetic CSV demo") if selected else "Uploaded CSV; source unverified"
             ), demo=True,
         )
-        return send_file(io.BytesIO(pdf), mimetype="application/pdf", as_attachment=True, download_name="credit-passport-demo.pdf")
+        return send_file(io.BytesIO(pdf), mimetype="application/pdf", as_attachment=True, download_name="landed-demo.pdf")
 
     @app.post("/api/ask")
     def ask():

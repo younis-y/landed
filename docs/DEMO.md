@@ -1,4 +1,4 @@
-# Demonstrating and testing Credit Passport
+# Demonstrating and testing Landed
 
 Everything here uses the fictional statements in `samples/`. Results were last confirmed on 13 October 2026.
 

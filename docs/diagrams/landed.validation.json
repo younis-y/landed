@@ -3,7 +3,7 @@
   "ok": true,
   "command": "validate",
   "type": "architecture",
-  "input": "docs/diagrams/credit-passport.architecture.json",
+  "input": "docs/diagrams/landed.architecture.json",
   "checks": [
     {
       "name": "single_svg",

@@ -1,4 +1,4 @@
-"""Credit Passport: a foreign bank statement in, an evidence-backed summary out.
+"""Landed: a foreign bank statement in, an evidence-backed summary out.
 
 Run: streamlit run app.py
 """
@@ -28,7 +28,7 @@ SAMPLE_NAMES = {"SGD": "Wei Ling Tan", "INR": "Priya Sharma"}  # fictional, used
 SAMPLES_ON_OFFER = {"Genuine": ("genuine.pdf", "SGD"), "Edited": ("tampered.csv", "SGD"),
                     "Missed rent": ("missed_rent.csv", "SGD"), "India, in rupees": ("india.csv", "INR")}
 
-st.set_page_config(page_title="Credit Passport", layout="centered")
+st.set_page_config(page_title="Landed", layout="centered")
 
 # Design rules this stylesheet holds to:
 #   type      six sizes only (34, 28, 20, 17, 15, 13 px)
@@ -161,7 +161,7 @@ if step == "welcome":
     user = st.session_state.get("user", "")
     brand, verify, account = st.columns([3.1, 1.3, 1.05] if user else [3.5, 1.3, 0.65], vertical_alignment="center")
     with brand:
-        html('<div class="brand nudge">Credit Passport</div>')
+        html('<div class="brand nudge">Landed</div>')
     if verify.button("Verify a passport", type="tertiary"):
         go("verify")
     if account.button("My passports" if user else "Sign in", type="tertiary"):
@@ -218,7 +218,7 @@ if step == "consent":
     items = lambda dot, lines: "".join(f'<div class="check" style="border:none;padding-top:8px"><span class="dot {dot}">'
                                        f'</span><div class="d" style="margin:0">{line}</div></div>' for line in lines)
     html(eyebrow("Demo bank connection")
-         + f'<div class="title">Share your statement with Credit Passport</div>'
+         + f'<div class="title">Share your statement with Landed</div>'
          f'<div class="lede">You are connecting {escape(chosen)}. This is a simulation: no real bank is contacted.</div>'
          '<div class="grid" style="grid-template-columns:1fr 1fr">'
          f'<div class="card"><div class="h" style="margin-top:0">We will receive</div>{items("good", bank.WE_RECEIVE)}</div>'
@@ -395,13 +395,13 @@ with share:
     st.code(link, language=None)
     html('<div class="caption">Or let them scan the code. It opens on any phone on the same wifi as this laptop.</div>')
 scan.image(qr_png(link), width=132)
-message = (f"Hello,\n\nPlease find my Credit Passport attached: a checked summary of my income and rent history "
+message = (f"Hello,\n\nPlease find my Landed passport attached: a checked summary of my income and rent history "
            f"from my bank statement.\n\nYou can confirm it is genuine here:\n{link}\n\n"
            f"Verification code: {code}\n\nKind regards,\n{applicant}")
 left, middle, right = st.columns([1.25, 1.25, 1.5])
 left.download_button("Download passport", build_pdf(passport, currency, rate, rate_source, applicant, code, source),
-                     file_name="credit-passport.pdf", mime="application/pdf", type="primary")
-middle.link_button("Email my landlord", f"mailto:?subject={quote('My Credit Passport')}&body={quote(message)}")
+                     file_name="landed.pdf", mime="application/pdf", type="primary")
+middle.link_button("Email my landlord", f"mailto:?subject={quote('My Landed passport')}&body={quote(message)}")
 if right.button("Check another statement", type="tertiary"):
     go("upload")
 if user:

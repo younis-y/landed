@@ -69,7 +69,7 @@ def test_every_fixture_is_explicitly_fictional_and_within_the_advertised_period(
 
 def test_download_bundle_contains_exactly_the_published_files():
     expected_names = {scenario["file"] for scenario in SCENARIOS} | {"manifest.json", "README.md"}
-    with ZipFile(DEMO / "credit-passport-synthetic-demo.zip") as archive:
+    with ZipFile(DEMO / "landed-synthetic-demo.zip") as archive:
         assert set(archive.namelist()) == expected_names
         for filename in expected_names:
             assert archive.read(filename) == (DEMO / filename).read_bytes()

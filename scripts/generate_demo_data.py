@@ -114,7 +114,7 @@ def guide(scenarios):
         f"| `{s['file']}` | {'Validation error' if s['expected']['error'] else 'Pass' if s['expected']['verified'] else 'Fail'} | {s['expected']['notes']} |"
         for s in scenarios
     )
-    return f"""# Credit Passport synthetic test pack
+    return f"""# Landed synthetic test pack
 
 Every row is entirely fictional. No real person, bank, account number, employer,
 merchant or bank connection is represented. The default currency is **SGD**.
@@ -169,7 +169,7 @@ def write_files(output=OUTPUT):
     files = build_files()
     for name, data in files.items():
         (output / name).write_bytes(data)
-    with ZipFile(output / "credit-passport-synthetic-demo.zip", "w") as archive:
+    with ZipFile(output / "landed-synthetic-demo.zip", "w") as archive:
         for name, data in sorted(files.items()):
             info = ZipInfo(name, date_time=(2026, 10, 13, 0, 0, 0))
             info.compress_type = ZIP_DEFLATED
