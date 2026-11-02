@@ -1,8 +1,8 @@
-# Credit Passport
+# Landed
 
-Turn a bank statement into a summary of recurring income, rent payments and observed balances.
+Rent your first UK home with your PayPal history. (Formerly Credit Passport.)
 
-![Credit Passport welcome screen](docs/screenshots/1-welcome.png)
+![Landed welcome screen](docs/screenshots/1-welcome.png)
 
 **Live demo:** https://credit-passport-paypal.vercel.app (synthetic data and PayPal sandbox only).
 
@@ -10,9 +10,9 @@ Built in one evening at a fintech hackathon in London on 13 October 2026, hosted
 
 ## Description
 
-Credit Passport is a Python prototype for people moving to the UK who want to share their overseas financial history with a landlord or letting agent. It reads a CSV or text-based PDF statement, checks the running balances and produces a PDF summary. The browser interface lets the applicant inspect the rows behind each finding, saves the issued summary locally and provides a code a landlord can use to retrieve it. The exported report and saved record omit the transaction table.
+Landed is for freelancers and remote workers new to the UK whose income arrives through PayPal from clients abroad. UK referencing usually asks self-employed applicants for two years of accounts, and their income is on no credit file, so they are turned down by default. Landed reads the PayPal history itself: every client payment, in any currency, totalled month by month. The earlier prototype reads a CSV or text-based PDF statement, checks the running balances and produces a PDF summary. The browser interface lets the applicant inspect the rows behind each finding, saves the issued summary locally and provides a code a landlord can use to retrieve it. The exported report and saved record omit the transaction table.
 
-"Verified" means that the supplied balances reconcile and the rows are in chronological order. It does not establish that the statement is authentic, complete or owned by the applicant. A landlord lookup retrieves the saved summary; it does not authenticate the underlying bank statement. Credit Passport does not produce a credit score or make a lending decision. The included demonstrations use fictional Singapore-dollar and Indian-rupee data. Bank connections and account sign-in are simulated.
+"Verified" means that the supplied balances reconcile and the rows are in chronological order. It does not establish that the statement is authentic, complete or owned by the applicant. A landlord lookup retrieves the saved summary; it does not authenticate the underlying bank statement. Landed does not produce a credit score or make a lending decision. The included demonstrations use fictional Singapore-dollar and Indian-rupee data. Bank connections and account sign-in are simulated.
 
 ## Table of Contents
 
@@ -34,7 +34,8 @@ Credit Passport is a Python prototype for people moving to the UK who want to sh
 
 ## Features
 
-- **PayPal verified income** for renters new to the UK: import PayPal history (live sandbox or a labelled sample), run the same balance checks, and show income, rent on time and rent share.
+- **Freelance income from PayPal** for renters new to the UK: import PayPal history (live sandbox or a labelled sample), run the same balance checks, and total what every client paid each month. Payments in USD or EUR are followed through PayPal's currency conversion into the GBP balance and keep the client's name. The sample applicant has four clients in three currencies.
+- **Deposit protection**: the deposit is held, not taken. The landlord has 72 hours to accept, after which only a refund is possible, and the applicant can release the hold themselves any time before the landlord accepts.
 - **Verified three ways**: PayPal history, a bank feed (simulated Open Banking, fictional Thames Bank) and the PDF statement. The PDF check reads which software last wrote the file, whether it was saved again after issue, and whether its rows add up; the bank feed then confirms every row. `scripts/make_bank_sample.py` makes a genuine PDF and a copy edited the way Acrobat saves it.
 - **Ask Claude** on the landlord's link; each answer cites the statement rows behind it.
 - **Deposit agent**: Claude applies the landlord's rule, holds one week's deposit on PayPal (authorise, not capture) and sets up monthly rent invoices with the PayPal Agent Toolkit, inside server-enforced limits.

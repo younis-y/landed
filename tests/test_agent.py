@@ -100,6 +100,6 @@ def test_agent_route_bounds_rent_and_remembers_the_offer(world):
         assert response.status_code == 200 and response.json["deposit"] == "242.30"
         with client.session_transaction() as session:
             offer = session["offer"]
-    assert offer == {"name": "Amira Haddad", "verified": False, "history": "Sample", "income": 3107,
-                     "rent": "1050.00", "share": 34, "record": "6/6", "series": "RI-1", "scenario": "paypal-sample",
+    assert offer == {"name": "Amira Haddad", "verified": False, "history": "Sample", "income": 3504,
+                     "rent": "1050.00", "share": 30, "record": "6/6", "clients": 4, "series": "RI-1", "scenario": "paypal-sample",
                      "ways": ["PayPal", "Bank", "Document"]}

@@ -115,7 +115,7 @@ class _Guard:
             raise ValueError("Refused: " + "; ".join(problems) + ".")
 
 
-def run(metrics, rent, rule, email, return_url, cancel_url, landlord="Credit Passport demo landlord", today=None):
+def run(metrics, rent, rule, email, return_url, cancel_url, landlord="Landed demo landlord", today=None):
     """Return {"steps": [...], "message", "approve_url", "deposit", "series_id", "series_active"}."""
     start = (today or date.today()) + timedelta(days=7)
     prompt = PROMPT.format(

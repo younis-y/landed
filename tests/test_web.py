@@ -53,7 +53,7 @@ def test_successful_analysis_returns_actual_evidence_and_correct_period(client):
     assert response.status_code == 200
     data = response.json
     assert data["balanced"] is True
-    assert data["metrics"] == {"income": 4800.0, "rent": 1600.0, "ratio": 1 / 3, "rent_record": "6/6"}
+    assert data["metrics"] == {"income": 4800.0, "rent": 1600.0, "ratio": 1 / 3, "rent_record": "6/6", "clients": None}
     assert data["rows"][0]["row"] == 1 and len(data["rows"]) == data["row_count"]
     assert data["currency"] == "SGD"
     assert data["period"] == ["2026-04-01", "2026-09-30"]

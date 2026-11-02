@@ -10,10 +10,13 @@ import io
 import json
 import os
 import secrets
+import time
+from datetime import datetime, timezone
 from decimal import Decimal, InvalidOperation
 from functools import lru_cache
 from pathlib import Path
 from urllib.parse import urlencode
+from zoneinfo import ZoneInfo
 
 import anthropic
 import pandas as pd
@@ -36,6 +39,7 @@ MAX_ROWS = 5000
 MAX_EVIDENCE_ROWS = 100
 PAYPAL_SOURCE = {"id": "paypal", "source": "PayPal sandbox account · rows fetched from PayPal", "report_source": "PayPal sandbox transaction history"}
 PAYPAL_SAMPLE = {"id": "paypal-sample", "applicant": "Amira Haddad", "source": "Sample PayPal history · fictional applicant", "report_source": "Sample PayPal history (fictional)"}
+ACCEPT_HOURS = 72  # the landlord's window to take the deposit; after it only a refund is possible
 DEFAULT_RULE = "Rent under 35% of income: hold one week's deposit and set up monthly rent."
 CURRENCIES = {
     "GBP": "GBP — British pound",
@@ -215,6 +219,15 @@ def sources(selected, data, currency, edited=False):
     return out
 
 
+def accept_by(offer):
+    """When the landlord's window closes, as a UTC timestamp; None for links made before the window existed."""
+    return offer["held_at"] + ACCEPT_HOURS * 3600 if offer.get("held_at") else None
+
+
+def london(timestamp):
+    return datetime.fromtimestamp(timestamp, timezone.utc).astimezone(ZoneInfo("Europe/London")).strftime("%a %-d %b, %H:%M")
+
+
 def login_enabled():
     """Log in with PayPal must be switched on for the app in the PayPal developer dashboard first."""
     return paypal.configured() and os.environ.get("PAYPAL_LOGIN") == "1"
@@ -226,6 +239,7 @@ def create_app():
     # Signs the session cookie and the landlord's link. Set SECRET_KEY on any multi-instance deployment.
     app.secret_key = os.environ.get("SECRET_KEY") or secrets.token_hex(32)
     signer = URLSafeSerializer(app.secret_key, salt="landlord-link")
+    tenant_signer = URLSafeSerializer(app.secret_key, salt="tenant-link")  # the applicant's own handle on the hold
     app.config.update(SESSION_COOKIE_SECURE=os.environ.get("VERCEL") == "1", SESSION_COOKIE_SAMESITE="Lax")
     app.config.update(
         MAX_CONTENT_LENGTH=MAX_CSV_BYTES + 128 * 1024,
@@ -300,6 +314,7 @@ def create_app():
                 "rent": passport["monthly_rent"],
                 "ratio": passport["rent_to_income"],
                 "rent_record": rent_record(result),
+                "clients": passport["clients"],
             } if balanced else None,
             applicant=(session.get("payer") or {}).get("name") or (selected or {}).get("applicant"),
             findings=[serialise_finding(finding) for finding in findings],
@@ -385,7 +400,7 @@ def create_app():
             "verified": bool(payer.get("verified")),
             "history": "PayPal" if (selected or {}).get("id") == "paypal" else "Sample" if selected else "Upload",
             "income": round(income), "rent": str(rent), "share": round(float(rent) / income * 100),
-            "record": rent_record(result), "series": outcome["series_id"] if outcome["series_active"] else None,
+            "record": rent_record(result), "clients": result.passport["clients"], "series": outcome["series_id"] if outcome["series_active"] else None,
             # The landlord's Ask Claude re-reads this history; uploads are not kept, so they get no questions.
             "scenario": scenario if from_paypal else None,
             "ways": [s["name"] for s in sources(selected, data, currency) if s["ok"]] if from_paypal else [],
@@ -399,8 +414,11 @@ def create_app():
             hold_id, amount = paypal.authorize_order(request.args.get("token", ""))
         except paypal.PayPalError:
             return redirect("/?deposit=failed")
-        link = signer.dumps({**(offer or {}), "hold": hold_id, "deposit": amount})
-        return redirect("/?" + urlencode({"deposit": "held", "amount": amount, "landlord": link}))
+        held_at = int(time.time())
+        link = signer.dumps({**(offer or {}), "hold": hold_id, "deposit": amount, "held_at": held_at})
+        mine = tenant_signer.dumps({"hold": hold_id, "deposit": amount})
+        return redirect("/?" + urlencode({"deposit": "held", "amount": amount, "landlord": link, "tenant": mine,
+                                          "until": london(held_at + ACCEPT_HOURS * 3600)}))
 
     @app.get("/paypal/cancel")
     def paypal_cancel():
@@ -412,7 +430,9 @@ def create_app():
             offer = signer.loads(token)
         except BadSignature:
             abort(404)
-        return render_template("landlord.html", offer=offer, token=token, ask=ai.configured())
+        deadline = accept_by(offer)
+        return render_template("landlord.html", offer=offer, token=token, ask=ai.configured(),
+                               until=london(deadline) if deadline else None, lapsed=bool(deadline and time.time() > deadline))
 
     @app.post("/api/l/<token>/<decision>")
     def landlord_decision(token, decision):
@@ -422,8 +442,24 @@ def create_app():
             abort(404)
         if decision not in ("accept", "refund"):
             abort(404)
+        deadline = accept_by(offer)
+        if decision == "accept" and deadline and time.time() > deadline:
+            return jsonify(error=f"This offer lapsed after {ACCEPT_HOURS} hours. The deposit can only be refunded now."), 410
         reference = paypal.settle_hold(offer["hold"], accept=decision == "accept")
         return jsonify(status="captured" if decision == "accept" else "voided", reference=reference)
+
+    @app.post("/api/t/<token>/release")
+    def tenant_release(token):
+        """The applicant pulls the deposit back before the landlord takes it, e.g. if the listing looks fake."""
+        try:
+            hold = tenant_signer.loads(token)
+        except BadSignature:
+            abort(404)
+        try:
+            reference = paypal.settle_hold(hold["hold"], accept=False)
+        except paypal.PayPalError:
+            return jsonify(error="PayPal could not release it: the landlord may already have accepted."), 409
+        return jsonify(status="voided", reference=reference)
 
     @app.get("/paypal/login")
     def paypal_login():

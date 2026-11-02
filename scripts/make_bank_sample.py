@@ -63,7 +63,7 @@ def page(statement_rows):
         pdf.drawString(130, y, text)
         pdf.drawRightString(450, y, f"{amount:+,.2f}" if amount else "")
         pdf.drawRightString(540, y, f"{bal:,.2f}")
-    pdf.drawString(50, 60, "Thames Bank is fictional. Sample statement for the Credit Passport demo.")
+    pdf.drawString(50, 60, "Thames Bank is fictional. Sample statement for the Landed demo.")
     pdf.save()
     return buffer.getvalue()
 

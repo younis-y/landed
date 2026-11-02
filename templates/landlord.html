@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
-  <title>{{ offer.name }} · Credit Passport</title>
+  <title>{{ offer.name }} · Landed</title>
   <link rel="icon" href="/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css">
   <script src="/landlord.js" defer></script>
@@ -15,12 +15,13 @@
       <p class="who-line">NEW APPLICANT</p>
       <div class="card">
         <p class="card-head"><b>{{ offer.name }}</b><span class="v">{{ "✓ PayPal verified" if offer.verified else "Sample" if offer.history == "Sample" else "From PayPal" }}</span><img class="seal" src="/logo-light.svg" alt="" width="30" height="30"></p>
-        <p class="big">£{{ "{:,}".format(offer.income) }}</p><p class="lab">a month</p>
+        <p class="big">£{{ "{:,}".format(offer.income) }}</p><p class="lab">a month{% if offer.clients %} from {{ offer.clients }} clients{% endif %}</p>
         <div class="k3"><span><b>{{ offer.record or "–" }}</b>rent on time</span><span><b>{{ offer.share }}%</b>of income on £{{ "{:,.0f}".format(offer.rent|float) }} rent</span></div>
         {% if offer.ways %}<div class="ways">{% for way in offer.ways %}<span><b>✓</b>{{ way }}</span>{% endfor %}</div>{% endif %}
       </div>
       <div class="facts">
         <p><span>Deposit held</span><b>{{ offer.deposit|replace("GBP ", "£") }}</b></p>
+        {% if until %}<p><span>{{ "Lapsed" if lapsed else "Accept by" }}</span><b>{{ until }}</b></p>{% endif %}
         {% if offer.series %}<p><span>Rent paid</span><b>Monthly via PayPal</b></p>{% endif %}
       </div>
       {% if ask and offer.scenario %}<div class="ask-box">
@@ -32,7 +33,7 @@
       </form>
       <div id="answer" class="answer" aria-live="polite"></div></div>{% endif %}
       <div class="btns" id="decision">
-        <button class="go" type="button" data-decision="accept">Accept</button>
+        {% if not lapsed %}<button class="go" type="button" data-decision="accept">Accept</button>{% endif %}
         <button class="ghost" type="button" data-decision="refund">Refund</button>
       </div>
       <p id="outcome" class="outcome" role="status" hidden></p>

@@ -5,6 +5,7 @@ from urllib.parse import parse_qs, urlparse
 import pytest
 
 from passport import paypal
+import server
 from server import app
 
 NOW = datetime(2026, 10, 29, tzinfo=timezone.utc)
@@ -123,7 +124,12 @@ def test_sample_history_is_mapped_by_the_same_code_and_passes(client):
     assert data["applicant"] == "Amira Haddad"
     assert data["source"].startswith("Sample PayPal history")
     assert data["metrics"]["rent_record"] == "6/6"
-    assert data["rows"][2] == {"row": 3, "date": "02 May", "description": "Northwind Studio Ltd", "amount": 3106.9}
+    assert data["rows"][2] == {"row": 3, "date": "02 May", "description": "Northwind Studio Ltd", "amount": 1359.1}
+    # A USD payment is converted into the GBP balance and keeps the client's name and original amount.
+    assert data["rows"][4] == {"row": 5, "date": "09 May", "description": "Brightline Inc · paid USD 1,800.00", "amount": 1363.05}
+    assert data["metrics"]["clients"] == 4 and round(data["metrics"]["income"]) == 3504
+    income = next(f for f in data["findings"] if f["label"] == "Regular income")
+    assert income["ok"] and income["detail"].startswith("4 clients paid in 6 of 6 months")
 
 
 def test_paypal_is_hidden_and_refused_when_not_configured(client, monkeypatch):
@@ -150,6 +156,10 @@ def test_return_places_a_hold_and_signs_a_landlord_link(fake_paypal, client):
     assert accept.json == {"status": "captured", "reference": "7KP11111AA2222222"}
     refund = client.post(f"/api/l/{query['landlord'][0]}/refund")
     assert refund.json["status"] == "voided"
+    assert query["until"] and query["tenant"]
+    release = client.post(f"/api/t/{query['tenant'][0]}/release")
+    assert release.json["status"] == "voided"
+    assert client.post(f"/api/t/{query['tenant'][0]}x/release").status_code == 404
     paths = [path for _, path, _ in fake_paypal]
     assert "/v2/payments/authorizations/8AB12345CD678901E/capture" in paths
     assert "/v2/payments/authorizations/8AB12345CD678901E/void" in paths
@@ -172,3 +182,17 @@ def test_login_checks_state_and_keeps_the_verified_profile(fake_paypal, client, 
         state = session["login_state"]
     assert client.get(f"/paypal/login/return?code=abc&state={state}").location == "/?connected=1"
     assert b"PayPal verified" in client.get("/").data
+
+
+def test_landlord_cannot_take_the_deposit_after_72_hours(fake_paypal, client, monkeypatch):
+    with client.session_transaction() as session:
+        session["offer"] = {"name": "Amira Haddad", "verified": False, "history": "Sample", "income": 3504,
+                            "rent": "1050.00", "share": 30, "record": "6/6", "series": None, "scenario": None}
+    link = parse_qs(urlparse(client.get("/paypal/return?token=5O190127TN364715T").location).query)["landlord"][0]
+    assert b"Accept by" in client.get(f"/l/{link}").data
+    later = server.time.time() + 73 * 3600
+    monkeypatch.setattr(server.time, "time", lambda: later)
+    page = client.get(f"/l/{link}").data
+    assert b"Lapsed" in page and b'data-decision="accept"' not in page
+    assert client.post(f"/api/l/{link}/accept").status_code == 410
+    assert client.post(f"/api/l/{link}/refund").json["status"] == "voided"

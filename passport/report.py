@@ -48,8 +48,8 @@ def build_pdf(passport, currency, rate, rate_source, applicant="", code="", sour
     checks.setStyle(TableStyle(style))
 
     out = io.BytesIO()
-    SimpleDocTemplate(out, pagesize=A4, topMargin=20 * mm, bottomMargin=18 * mm, title="Credit Passport").build([
-        Paragraph("Credit Passport", styles["Title"]),
+    SimpleDocTemplate(out, pagesize=A4, topMargin=20 * mm, bottomMargin=18 * mm, title="Landed").build([
+        Paragraph("Landed", styles["Title"]),
         *([Paragraph("SYNTHETIC DEMO - not for lending or tenancy decisions", styles["Heading3"]),
            Spacer(1, 6)] if demo else []),
         *([Paragraph(f"Prepared for <b>{escape(applicant)}</b> ({name_note(source)}).", styles["Normal"]),

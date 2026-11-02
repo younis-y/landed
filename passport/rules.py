@@ -12,6 +12,8 @@ MIN_MONTHS = 3  # a payment must show up in at least this many months to count a
 INCOME_TOLERANCE = 0.15
 RENT_TOLERANCE = 0.05
 ON_TIME_DAYS = 3
+MIN_CLIENTS = 3  # money in from this many different payers is read as freelance income
+OWN_MONEY = ("TRANSFER", "TOP UP", "REFUND", "OPENING BALANCE")  # money in that nobody earned
 
 
 @dataclass
@@ -53,14 +55,36 @@ def check_balances(tx):
     return Finding("Statement does not add up", False, detail, show)
 
 
+def _client(description):
+    """'Brightline Inc · paid USD 1,500.00' and 'Brightline Inc' are the same client."""
+    return _key(description.split(" · ")[0])
+
+
+def find_client_income(tx, earned):
+    """Freelance income: everything clients paid in, month by month, across all of them."""
+    active = tx[tx["amount"] != 0]["date"]
+    months = pd.period_range(active.min(), active.max(), freq="M")
+    totals = earned.groupby(earned["date"].dt.to_period("M"))["amount"].sum().reindex(months, fill_value=0.0)
+    clients = earned["description"].map(_client).nunique()
+    monthly = float(totals.median())
+    paid = int((totals > 0).sum())
+    detail = (f"{clients} clients paid in {paid} of {len(months)} months, typically {monthly:,.2f} a month "
+              f"(lowest {float(totals.min()):,.2f}).")
+    return Finding("Regular income", paid == len(months) and paid >= MIN_MONTHS, detail, earned), monthly, clients
+
+
 def find_income(tx):
+    """Returns (finding, typical monthly income, number of clients or None for a salary)."""
+    earned = tx[(tx["amount"] > 0) & ~tx["description"].str.upper().str.contains("|".join(OWN_MONEY))]
+    if earned["description"].map(_client).nunique() >= MIN_CLIENTS:
+        return find_client_income(tx, earned)
     groups = _recurring(tx[tx["amount"] > 0], INCOME_TOLERANCE)
     if not groups:
-        return Finding("Regular income", False, "No regular income found."), None
+        return Finding("Regular income", False, "No regular income found."), None, None
     best = max(groups, key=lambda g: g["amount"].sum())
     monthly = float(best["amount"].median())
     months = best["date"].dt.to_period("M").nunique()
-    return Finding("Regular income", True, f"Paid in {months} separate months, typically {monthly:,.2f}.", best), monthly
+    return Finding("Regular income", True, f"Paid in {months} separate months, typically {monthly:,.2f}.", best), monthly, None
 
 
 def find_rent(tx):
@@ -98,7 +122,7 @@ def check_buffer(tx):
 
 def build_passport(tx):
     balances = check_balances(tx)
-    income, monthly_income = find_income(tx)
+    income, monthly_income, clients = find_income(tx)
     rent, monthly_rent = find_rent(tx)
     buffer = check_buffer(tx)
     ratio = monthly_rent / monthly_income if monthly_income and monthly_rent else None
@@ -109,5 +133,6 @@ def build_passport(tx):
         "monthly_income": monthly_income,
         "monthly_rent": monthly_rent,
         "rent_to_income": ratio,
+        "clients": clients,
         "findings": [balances, income, rent, buffer],
     }

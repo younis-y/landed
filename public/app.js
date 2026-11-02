@@ -85,7 +85,8 @@ function fillPassport(data) {
   byId("p-name").textContent = data.applicant || "You";
   byId("p-badge").textContent = sample ? "Sample" : "✓ From PayPal";
   byId("p-income").textContent = m.income ? pounds(m.income) : "–";
-  byId("p-period").textContent = m.income ? `a month, last ${months(data.period)} months` : "no regular income yet";
+  const clients = m.clients ? ` from ${m.clients} clients` : "";
+  byId("p-period").textContent = m.income ? `a month${clients}, last ${months(data.period)} months` : "no regular income yet";
   byId("p-record").textContent = m.rent_record || "–";
   byId("p-rows").textContent = Math.max(0, data.row_count - 1);
   const ways = byId("p-ways");
@@ -199,6 +200,16 @@ function showOutcome() {
   if (deposit === "held" && params.get("landlord")) {
     const link = `${window.location.origin}/l/${params.get("landlord")}`;
     byId("done-amount").textContent = (params.get("amount") || "").replace("GBP ", "£");
+    byId("done-until").textContent = params.get("until") || "";
+    byId("release").addEventListener("click", () => work("Releasing your deposit…", async () => {
+      await call(`/api/t/${params.get("tenant")}/release`, {});
+      byId("done-title").textContent = "Deposit released";
+      byId("done-amount").parentElement.querySelector("span").textContent = "Released, nothing taken";
+      byId("release").hidden = true;
+      byId("done-until").parentElement.hidden = true;
+      byId("landlord-link").hidden = true;
+      byId("copy-link").hidden = true;
+    }));
     byId("landlord-link").href = link;
     byId("copy-link").addEventListener("click", async () => {
       await navigator.clipboard.writeText(link);

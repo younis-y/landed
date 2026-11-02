@@ -2,6 +2,7 @@
  "transaction_details": [
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00001",
     "transaction_initiation_date": "2026-04-30T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -22,6 +23,7 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00002",
     "transaction_initiation_date": "2026-05-01T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -42,18 +44,19 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00003",
     "transaction_initiation_date": "2026-05-02T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
-     "value": "3200.00"
+     "value": "1400.00"
     },
     "fee_amount": {
      "currency_code": "GBP",
-     "value": "-93.10"
+     "value": "-40.90"
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "3996.90"
+     "value": "2249.10"
     },
     "transaction_event_code": "T0006"
    },
@@ -65,6 +68,7 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00004",
     "transaction_initiation_date": "2026-05-08T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -76,7 +80,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "3928.50"
+     "value": "2180.70"
     },
     "transaction_event_code": "T0003",
     "transaction_subject": "Octopus Energy"
@@ -85,6 +89,73 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00005",
+    "transaction_initiation_date": "2026-05-09T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "USD",
+     "value": "1800.00"
+    },
+    "fee_amount": {
+     "currency_code": "USD",
+     "value": "-52.50"
+    },
+    "ending_balance": {
+     "currency_code": "USD",
+     "value": "1747.50"
+    },
+    "transaction_event_code": "T0006"
+   },
+   "payer_info": {
+    "payer_name": {
+     "alternate_full_name": "Brightline Inc"
+    }
+   }
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00006",
+    "transaction_initiation_date": "2026-05-09T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "USD",
+     "value": "-1747.50"
+    },
+    "fee_amount": {
+     "currency_code": "USD",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "USD",
+     "value": "0.00"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00005"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00007",
+    "transaction_initiation_date": "2026-05-09T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "1363.05"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "3543.75"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00005"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00008",
     "transaction_initiation_date": "2026-05-12T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -96,7 +167,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "3910.50"
+     "value": "3525.75"
     },
     "transaction_event_code": "T0003",
     "transaction_subject": "Three Mobile"
@@ -105,6 +176,7 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00009",
     "transaction_initiation_date": "2026-05-15T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -116,7 +188,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "2710.50"
+     "value": "2325.75"
     },
     "transaction_event_code": "T0400",
     "transaction_subject": "Transfer to Thames Bank"
@@ -125,6 +197,73 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00010",
+    "transaction_initiation_date": "2026-05-21T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "EUR",
+     "value": "1100.00"
+    },
+    "fee_amount": {
+     "currency_code": "EUR",
+     "value": "-32.20"
+    },
+    "ending_balance": {
+     "currency_code": "EUR",
+     "value": "1067.80"
+    },
+    "transaction_event_code": "T0006"
+   },
+   "payer_info": {
+    "payer_name": {
+     "alternate_full_name": "Kaya Design GmbH"
+    }
+   }
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00011",
+    "transaction_initiation_date": "2026-05-21T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "EUR",
+     "value": "-1067.80"
+    },
+    "fee_amount": {
+     "currency_code": "EUR",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "EUR",
+     "value": "0.00"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00010"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00012",
+    "transaction_initiation_date": "2026-05-21T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "907.63"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "3233.38"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00010"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00013",
     "transaction_initiation_date": "2026-05-24T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -136,7 +275,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "2698.51"
+     "value": "3221.39"
     },
     "transaction_event_code": "T0003",
     "transaction_subject": "Spotify"
@@ -145,6 +284,28 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00014",
+    "transaction_initiation_date": "2026-05-25T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "-1150.00"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "2071.39"
+    },
+    "transaction_event_code": "T0400",
+    "transaction_subject": "Transfer to Harbour Savings"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00015",
     "transaction_initiation_date": "2026-06-01T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -156,7 +317,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "1748.51"
+     "value": "1121.39"
     },
     "transaction_event_code": "T0001",
     "transaction_subject": "Rent - Flat 4, Mare Street"
@@ -165,18 +326,19 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00016",
     "transaction_initiation_date": "2026-06-02T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
-     "value": "3150.00"
+     "value": "1400.00"
     },
     "fee_amount": {
      "currency_code": "GBP",
-     "value": "-91.65"
+     "value": "-40.90"
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "4806.86"
+     "value": "2480.49"
     },
     "transaction_event_code": "T0006"
    },
@@ -188,6 +350,7 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00017",
     "transaction_initiation_date": "2026-06-08T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -199,7 +362,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "4738.46"
+     "value": "2412.09"
     },
     "transaction_event_code": "T0003",
     "transaction_subject": "Octopus Energy"
@@ -208,6 +371,73 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00018",
+    "transaction_initiation_date": "2026-06-11T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "USD",
+     "value": "1500.00"
+    },
+    "fee_amount": {
+     "currency_code": "USD",
+     "value": "-43.80"
+    },
+    "ending_balance": {
+     "currency_code": "USD",
+     "value": "1456.20"
+    },
+    "transaction_event_code": "T0006"
+   },
+   "payer_info": {
+    "payer_name": {
+     "alternate_full_name": "Brightline Inc"
+    }
+   }
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00019",
+    "transaction_initiation_date": "2026-06-11T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "USD",
+     "value": "-1456.20"
+    },
+    "fee_amount": {
+     "currency_code": "USD",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "USD",
+     "value": "0.00"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00018"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00020",
+    "transaction_initiation_date": "2026-06-11T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "1135.84"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "3547.93"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00018"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00021",
     "transaction_initiation_date": "2026-06-12T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -219,7 +449,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "4720.46"
+     "value": "3529.93"
     },
     "transaction_event_code": "T0003",
     "transaction_subject": "Three Mobile"
@@ -228,6 +458,7 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00022",
     "transaction_initiation_date": "2026-06-15T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -239,7 +470,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "3520.46"
+     "value": "2329.93"
     },
     "transaction_event_code": "T0400",
     "transaction_subject": "Transfer to Thames Bank"
@@ -248,18 +479,19 @@
   },
   {
    "transaction_info": {
-    "transaction_initiation_date": "2026-06-20T09:00:00+0000",
+    "transaction_id": "5SAMPLE00023",
+    "transaction_initiation_date": "2026-06-19T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
-     "value": "480.00"
+     "value": "650.00"
     },
     "fee_amount": {
      "currency_code": "GBP",
-     "value": "-14.22"
+     "value": "-19.15"
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "3986.24"
+     "value": "2960.78"
     },
     "transaction_event_code": "T0006"
    },
@@ -271,6 +503,7 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00024",
     "transaction_initiation_date": "2026-06-24T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -282,7 +515,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "3974.25"
+     "value": "2948.79"
     },
     "transaction_event_code": "T0003",
     "transaction_subject": "Spotify"
@@ -291,6 +524,28 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00025",
+    "transaction_initiation_date": "2026-06-25T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "-1150.00"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "1798.79"
+    },
+    "transaction_event_code": "T0400",
+    "transaction_subject": "Transfer to Harbour Savings"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00026",
     "transaction_initiation_date": "2026-07-01T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -302,7 +557,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "3024.25"
+     "value": "848.79"
     },
     "transaction_event_code": "T0001",
     "transaction_subject": "Rent - Flat 4, Mare Street"
@@ -311,18 +566,19 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00027",
     "transaction_initiation_date": "2026-07-02T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
-     "value": "3250.00"
+     "value": "1400.00"
     },
     "fee_amount": {
      "currency_code": "GBP",
-     "value": "-94.55"
+     "value": "-40.90"
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "6179.70"
+     "value": "2207.89"
     },
     "transaction_event_code": "T0006"
    },
@@ -334,6 +590,7 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00028",
     "transaction_initiation_date": "2026-07-08T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -345,7 +602,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "6111.30"
+     "value": "2139.49"
     },
     "transaction_event_code": "T0003",
     "transaction_subject": "Octopus Energy"
@@ -354,6 +611,7 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00029",
     "transaction_initiation_date": "2026-07-12T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -365,7 +623,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "6093.30"
+     "value": "2121.49"
     },
     "transaction_event_code": "T0003",
     "transaction_subject": "Three Mobile"
@@ -374,6 +632,7 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00030",
     "transaction_initiation_date": "2026-07-15T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -385,7 +644,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "4893.30"
+     "value": "921.49"
     },
     "transaction_event_code": "T0400",
     "transaction_subject": "Transfer to Thames Bank"
@@ -394,6 +653,73 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00031",
+    "transaction_initiation_date": "2026-07-17T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "EUR",
+     "value": "1300.00"
+    },
+    "fee_amount": {
+     "currency_code": "EUR",
+     "value": "-38.00"
+    },
+    "ending_balance": {
+     "currency_code": "EUR",
+     "value": "1262.00"
+    },
+    "transaction_event_code": "T0006"
+   },
+   "payer_info": {
+    "payer_name": {
+     "alternate_full_name": "Kaya Design GmbH"
+    }
+   }
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00032",
+    "transaction_initiation_date": "2026-07-17T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "EUR",
+     "value": "-1262.00"
+    },
+    "fee_amount": {
+     "currency_code": "EUR",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "EUR",
+     "value": "0.00"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00031"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00033",
+    "transaction_initiation_date": "2026-07-17T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "1072.70"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "1994.19"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00031"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00034",
     "transaction_initiation_date": "2026-07-24T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -405,7 +731,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "4881.31"
+     "value": "1982.20"
     },
     "transaction_event_code": "T0003",
     "transaction_subject": "Spotify"
@@ -414,10 +740,11 @@
   },
   {
    "transaction_info": {
-    "transaction_initiation_date": "2026-08-01T09:00:00+0000",
+    "transaction_id": "5SAMPLE00035",
+    "transaction_initiation_date": "2026-07-25T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
-     "value": "-950.00"
+     "value": "-1150.00"
     },
     "fee_amount": {
      "currency_code": "GBP",
@@ -425,222 +752,17 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "3931.31"
-    },
-    "transaction_event_code": "T0001",
-    "transaction_subject": "Rent - Flat 4, Mare Street"
-   },
-   "payer_info": {}
-  },
-  {
-   "transaction_info": {
-    "transaction_initiation_date": "2026-08-02T09:00:00+0000",
-    "transaction_amount": {
-     "currency_code": "GBP",
-     "value": "3200.00"
-    },
-    "fee_amount": {
-     "currency_code": "GBP",
-     "value": "-93.10"
-    },
-    "ending_balance": {
-     "currency_code": "GBP",
-     "value": "7038.21"
-    },
-    "transaction_event_code": "T0006"
-   },
-   "payer_info": {
-    "payer_name": {
-     "alternate_full_name": "Northwind Studio Ltd"
-    }
-   }
-  },
-  {
-   "transaction_info": {
-    "transaction_initiation_date": "2026-08-08T09:00:00+0000",
-    "transaction_amount": {
-     "currency_code": "GBP",
-     "value": "-68.40"
-    },
-    "fee_amount": {
-     "currency_code": "GBP",
-     "value": "0.00"
-    },
-    "ending_balance": {
-     "currency_code": "GBP",
-     "value": "6969.81"
-    },
-    "transaction_event_code": "T0003",
-    "transaction_subject": "Octopus Energy"
-   },
-   "payer_info": {}
-  },
-  {
-   "transaction_info": {
-    "transaction_initiation_date": "2026-08-12T09:00:00+0000",
-    "transaction_amount": {
-     "currency_code": "GBP",
-     "value": "-18.00"
-    },
-    "fee_amount": {
-     "currency_code": "GBP",
-     "value": "0.00"
-    },
-    "ending_balance": {
-     "currency_code": "GBP",
-     "value": "6951.81"
-    },
-    "transaction_event_code": "T0003",
-    "transaction_subject": "Three Mobile"
-   },
-   "payer_info": {}
-  },
-  {
-   "transaction_info": {
-    "transaction_initiation_date": "2026-08-15T09:00:00+0000",
-    "transaction_amount": {
-     "currency_code": "GBP",
-     "value": "-1200.00"
-    },
-    "fee_amount": {
-     "currency_code": "GBP",
-     "value": "0.00"
-    },
-    "ending_balance": {
-     "currency_code": "GBP",
-     "value": "5751.81"
+     "value": "832.20"
     },
     "transaction_event_code": "T0400",
-    "transaction_subject": "Transfer to Thames Bank"
+    "transaction_subject": "Transfer to Harbour Savings"
    },
    "payer_info": {}
   },
   {
    "transaction_info": {
-    "transaction_initiation_date": "2026-08-24T09:00:00+0000",
-    "transaction_amount": {
-     "currency_code": "GBP",
-     "value": "-11.99"
-    },
-    "fee_amount": {
-     "currency_code": "GBP",
-     "value": "0.00"
-    },
-    "ending_balance": {
-     "currency_code": "GBP",
-     "value": "5739.82"
-    },
-    "transaction_event_code": "T0003",
-    "transaction_subject": "Spotify"
-   },
-   "payer_info": {}
-  },
-  {
-   "transaction_info": {
-    "transaction_initiation_date": "2026-09-01T09:00:00+0000",
-    "transaction_amount": {
-     "currency_code": "GBP",
-     "value": "-950.00"
-    },
-    "fee_amount": {
-     "currency_code": "GBP",
-     "value": "0.00"
-    },
-    "ending_balance": {
-     "currency_code": "GBP",
-     "value": "4789.82"
-    },
-    "transaction_event_code": "T0001",
-    "transaction_subject": "Rent - Flat 4, Mare Street"
-   },
-   "payer_info": {}
-  },
-  {
-   "transaction_info": {
-    "transaction_initiation_date": "2026-09-02T09:00:00+0000",
-    "transaction_amount": {
-     "currency_code": "GBP",
-     "value": "3180.00"
-    },
-    "fee_amount": {
-     "currency_code": "GBP",
-     "value": "-92.52"
-    },
-    "ending_balance": {
-     "currency_code": "GBP",
-     "value": "7877.30"
-    },
-    "transaction_event_code": "T0006"
-   },
-   "payer_info": {
-    "payer_name": {
-     "alternate_full_name": "Northwind Studio Ltd"
-    }
-   }
-  },
-  {
-   "transaction_info": {
-    "transaction_initiation_date": "2026-09-08T09:00:00+0000",
-    "transaction_amount": {
-     "currency_code": "GBP",
-     "value": "-68.40"
-    },
-    "fee_amount": {
-     "currency_code": "GBP",
-     "value": "0.00"
-    },
-    "ending_balance": {
-     "currency_code": "GBP",
-     "value": "7808.90"
-    },
-    "transaction_event_code": "T0003",
-    "transaction_subject": "Octopus Energy"
-   },
-   "payer_info": {}
-  },
-  {
-   "transaction_info": {
-    "transaction_initiation_date": "2026-09-12T09:00:00+0000",
-    "transaction_amount": {
-     "currency_code": "GBP",
-     "value": "-18.00"
-    },
-    "fee_amount": {
-     "currency_code": "GBP",
-     "value": "0.00"
-    },
-    "ending_balance": {
-     "currency_code": "GBP",
-     "value": "7790.90"
-    },
-    "transaction_event_code": "T0003",
-    "transaction_subject": "Three Mobile"
-   },
-   "payer_info": {}
-  },
-  {
-   "transaction_info": {
-    "transaction_initiation_date": "2026-09-15T09:00:00+0000",
-    "transaction_amount": {
-     "currency_code": "GBP",
-     "value": "-1200.00"
-    },
-    "fee_amount": {
-     "currency_code": "GBP",
-     "value": "0.00"
-    },
-    "ending_balance": {
-     "currency_code": "GBP",
-     "value": "6590.90"
-    },
-    "transaction_event_code": "T0400",
-    "transaction_subject": "Transfer to Thames Bank"
-   },
-   "payer_info": {}
-  },
-  {
-   "transaction_info": {
-    "transaction_initiation_date": "2026-09-20T09:00:00+0000",
+    "transaction_id": "5SAMPLE00036",
+    "transaction_initiation_date": "2026-07-26T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
      "value": "480.00"
@@ -651,7 +773,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "7056.68"
+     "value": "1297.98"
     },
     "transaction_event_code": "T0006"
    },
@@ -663,27 +785,8 @@
   },
   {
    "transaction_info": {
-    "transaction_initiation_date": "2026-09-24T09:00:00+0000",
-    "transaction_amount": {
-     "currency_code": "GBP",
-     "value": "-11.99"
-    },
-    "fee_amount": {
-     "currency_code": "GBP",
-     "value": "0.00"
-    },
-    "ending_balance": {
-     "currency_code": "GBP",
-     "value": "7044.69"
-    },
-    "transaction_event_code": "T0003",
-    "transaction_subject": "Spotify"
-   },
-   "payer_info": {}
-  },
-  {
-   "transaction_info": {
-    "transaction_initiation_date": "2026-10-01T09:00:00+0000",
+    "transaction_id": "5SAMPLE00037",
+    "transaction_initiation_date": "2026-08-01T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
      "value": "-950.00"
@@ -694,7 +797,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "6094.69"
+     "value": "347.98"
     },
     "transaction_event_code": "T0001",
     "transaction_subject": "Rent - Flat 4, Mare Street"
@@ -703,18 +806,19 @@
   },
   {
    "transaction_info": {
-    "transaction_initiation_date": "2026-10-02T09:00:00+0000",
+    "transaction_id": "5SAMPLE00038",
+    "transaction_initiation_date": "2026-08-02T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
-     "value": "3220.00"
+     "value": "1400.00"
     },
     "fee_amount": {
      "currency_code": "GBP",
-     "value": "-93.68"
+     "value": "-40.90"
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "9221.01"
+     "value": "1707.08"
     },
     "transaction_event_code": "T0006"
    },
@@ -726,6 +830,529 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00039",
+    "transaction_initiation_date": "2026-08-08T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "USD",
+     "value": "2100.00"
+    },
+    "fee_amount": {
+     "currency_code": "USD",
+     "value": "-61.20"
+    },
+    "ending_balance": {
+     "currency_code": "USD",
+     "value": "2038.80"
+    },
+    "transaction_event_code": "T0006"
+   },
+   "payer_info": {
+    "payer_name": {
+     "alternate_full_name": "Brightline Inc"
+    }
+   }
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00040",
+    "transaction_initiation_date": "2026-08-08T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "USD",
+     "value": "-2038.80"
+    },
+    "fee_amount": {
+     "currency_code": "USD",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "USD",
+     "value": "0.00"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00039"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00041",
+    "transaction_initiation_date": "2026-08-08T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "1590.26"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "3297.34"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00039"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00042",
+    "transaction_initiation_date": "2026-08-08T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "-68.40"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "3228.94"
+    },
+    "transaction_event_code": "T0003",
+    "transaction_subject": "Octopus Energy"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00043",
+    "transaction_initiation_date": "2026-08-12T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "-18.00"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "3210.94"
+    },
+    "transaction_event_code": "T0003",
+    "transaction_subject": "Three Mobile"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00044",
+    "transaction_initiation_date": "2026-08-15T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "-1200.00"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "2010.94"
+    },
+    "transaction_event_code": "T0400",
+    "transaction_subject": "Transfer to Thames Bank"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00045",
+    "transaction_initiation_date": "2026-08-23T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "EUR",
+     "value": "900.00"
+    },
+    "fee_amount": {
+     "currency_code": "EUR",
+     "value": "-26.40"
+    },
+    "ending_balance": {
+     "currency_code": "EUR",
+     "value": "873.60"
+    },
+    "transaction_event_code": "T0006"
+   },
+   "payer_info": {
+    "payer_name": {
+     "alternate_full_name": "Kaya Design GmbH"
+    }
+   }
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00046",
+    "transaction_initiation_date": "2026-08-23T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "EUR",
+     "value": "-873.60"
+    },
+    "fee_amount": {
+     "currency_code": "EUR",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "EUR",
+     "value": "0.00"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00045"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00047",
+    "transaction_initiation_date": "2026-08-23T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "742.56"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "2753.50"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00045"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00048",
+    "transaction_initiation_date": "2026-08-24T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "-11.99"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "2741.51"
+    },
+    "transaction_event_code": "T0003",
+    "transaction_subject": "Spotify"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00049",
+    "transaction_initiation_date": "2026-08-25T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "-1150.00"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "1591.51"
+    },
+    "transaction_event_code": "T0400",
+    "transaction_subject": "Transfer to Harbour Savings"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00050",
+    "transaction_initiation_date": "2026-09-01T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "-950.00"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "641.51"
+    },
+    "transaction_event_code": "T0001",
+    "transaction_subject": "Rent - Flat 4, Mare Street"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00051",
+    "transaction_initiation_date": "2026-09-02T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "1400.00"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "-40.90"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "2000.61"
+    },
+    "transaction_event_code": "T0006"
+   },
+   "payer_info": {
+    "payer_name": {
+     "alternate_full_name": "Northwind Studio Ltd"
+    }
+   }
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00052",
+    "transaction_initiation_date": "2026-09-08T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "-68.40"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "1932.21"
+    },
+    "transaction_event_code": "T0003",
+    "transaction_subject": "Octopus Energy"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00053",
+    "transaction_initiation_date": "2026-09-10T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "USD",
+     "value": "1650.00"
+    },
+    "fee_amount": {
+     "currency_code": "USD",
+     "value": "-48.15"
+    },
+    "ending_balance": {
+     "currency_code": "USD",
+     "value": "1601.85"
+    },
+    "transaction_event_code": "T0006"
+   },
+   "payer_info": {
+    "payer_name": {
+     "alternate_full_name": "Brightline Inc"
+    }
+   }
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00054",
+    "transaction_initiation_date": "2026-09-10T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "USD",
+     "value": "-1601.85"
+    },
+    "fee_amount": {
+     "currency_code": "USD",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "USD",
+     "value": "0.00"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00053"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00055",
+    "transaction_initiation_date": "2026-09-10T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "1249.44"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "3181.65"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00053"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00056",
+    "transaction_initiation_date": "2026-09-12T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "-18.00"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "3163.65"
+    },
+    "transaction_event_code": "T0003",
+    "transaction_subject": "Three Mobile"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00057",
+    "transaction_initiation_date": "2026-09-15T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "-1200.00"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "1963.65"
+    },
+    "transaction_event_code": "T0400",
+    "transaction_subject": "Transfer to Thames Bank"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00058",
+    "transaction_initiation_date": "2026-09-20T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "900.00"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "-26.40"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "2837.25"
+    },
+    "transaction_event_code": "T0006"
+   },
+   "payer_info": {
+    "payer_name": {
+     "alternate_full_name": "Atlas Media"
+    }
+   }
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00059",
+    "transaction_initiation_date": "2026-09-24T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "-11.99"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "2825.26"
+    },
+    "transaction_event_code": "T0003",
+    "transaction_subject": "Spotify"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00060",
+    "transaction_initiation_date": "2026-09-25T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "-1150.00"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "1675.26"
+    },
+    "transaction_event_code": "T0400",
+    "transaction_subject": "Transfer to Harbour Savings"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00061",
+    "transaction_initiation_date": "2026-10-01T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "-950.00"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "725.26"
+    },
+    "transaction_event_code": "T0001",
+    "transaction_subject": "Rent - Flat 4, Mare Street"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00062",
+    "transaction_initiation_date": "2026-10-02T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "1400.00"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "-40.90"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "2084.36"
+    },
+    "transaction_event_code": "T0006"
+   },
+   "payer_info": {
+    "payer_name": {
+     "alternate_full_name": "Northwind Studio Ltd"
+    }
+   }
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00063",
     "transaction_initiation_date": "2026-10-08T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -737,7 +1364,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "9152.61"
+     "value": "2015.96"
     },
     "transaction_event_code": "T0003",
     "transaction_subject": "Octopus Energy"
@@ -746,6 +1373,73 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00064",
+    "transaction_initiation_date": "2026-10-09T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "USD",
+     "value": "1500.00"
+    },
+    "fee_amount": {
+     "currency_code": "USD",
+     "value": "-43.80"
+    },
+    "ending_balance": {
+     "currency_code": "USD",
+     "value": "1456.20"
+    },
+    "transaction_event_code": "T0006"
+   },
+   "payer_info": {
+    "payer_name": {
+     "alternate_full_name": "Brightline Inc"
+    }
+   }
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00065",
+    "transaction_initiation_date": "2026-10-09T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "USD",
+     "value": "-1456.20"
+    },
+    "fee_amount": {
+     "currency_code": "USD",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "USD",
+     "value": "0.00"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00064"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00066",
+    "transaction_initiation_date": "2026-10-09T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "1135.84"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "3151.80"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00064"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00067",
     "transaction_initiation_date": "2026-10-12T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -757,7 +1451,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "9134.61"
+     "value": "3133.80"
     },
     "transaction_event_code": "T0003",
     "transaction_subject": "Three Mobile"
@@ -766,6 +1460,7 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00068",
     "transaction_initiation_date": "2026-10-15T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -777,7 +1472,7 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "7934.61"
+     "value": "1933.80"
     },
     "transaction_event_code": "T0400",
     "transaction_subject": "Transfer to Thames Bank"
@@ -786,6 +1481,73 @@
   },
   {
    "transaction_info": {
+    "transaction_id": "5SAMPLE00069",
+    "transaction_initiation_date": "2026-10-22T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "EUR",
+     "value": "1250.00"
+    },
+    "fee_amount": {
+     "currency_code": "EUR",
+     "value": "-36.55"
+    },
+    "ending_balance": {
+     "currency_code": "EUR",
+     "value": "1213.45"
+    },
+    "transaction_event_code": "T0006"
+   },
+   "payer_info": {
+    "payer_name": {
+     "alternate_full_name": "Kaya Design GmbH"
+    }
+   }
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00070",
+    "transaction_initiation_date": "2026-10-22T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "EUR",
+     "value": "-1213.45"
+    },
+    "fee_amount": {
+     "currency_code": "EUR",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "EUR",
+     "value": "0.00"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00069"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00071",
+    "transaction_initiation_date": "2026-10-22T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "1031.43"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "2965.23"
+    },
+    "transaction_event_code": "T0200",
+    "paypal_reference_id": "5SAMPLE00069"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00072",
     "transaction_initiation_date": "2026-10-24T09:00:00+0000",
     "transaction_amount": {
      "currency_code": "GBP",
@@ -797,10 +1559,31 @@
     },
     "ending_balance": {
      "currency_code": "GBP",
-     "value": "7922.62"
+     "value": "2953.24"
     },
     "transaction_event_code": "T0003",
     "transaction_subject": "Spotify"
+   },
+   "payer_info": {}
+  },
+  {
+   "transaction_info": {
+    "transaction_id": "5SAMPLE00073",
+    "transaction_initiation_date": "2026-10-25T09:00:00+0000",
+    "transaction_amount": {
+     "currency_code": "GBP",
+     "value": "-1150.00"
+    },
+    "fee_amount": {
+     "currency_code": "GBP",
+     "value": "0.00"
+    },
+    "ending_balance": {
+     "currency_code": "GBP",
+     "value": "1803.24"
+    },
+    "transaction_event_code": "T0400",
+    "transaction_subject": "Transfer to Harbour Savings"
    },
    "payer_info": {}
   }

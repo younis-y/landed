@@ -70,14 +70,30 @@ def _token():
     return _request("POST", "/v1/oauth2/token", form={"grant_type": "client_credentials"})["access_token"]
 
 
+def _payer(item):
+    return item.get("payer_info", {}).get("payer_name", {}).get("alternate_full_name")
+
+
 def _rows(details):
-    """Map Transaction Search records to statement rows; amounts are net of PayPal's fee."""
+    """Map Transaction Search records to statement rows; amounts are net of PayPal's fee.
+
+    A payment in another currency is followed by conversion records (T0200) that point back to it;
+    the one that lands in the main balance is named after the original payer and amount.
+    """
+    originals = {
+        item["transaction_info"]["transaction_id"]: item for item in details
+        if item.get("transaction_info", {}).get("transaction_id") and _payer(item)
+    }
     rows = []
     for item in details:
         info = item.get("transaction_info", {})
         if "ending_balance" not in info:
             raise PayPalError("PayPal did not return running balances, so the balance check cannot run.")
-        payer = item.get("payer_info", {}).get("payer_name", {}).get("alternate_full_name")
+        payer = _payer(item)
+        original = originals.get(info.get("paypal_reference_id"))
+        if info.get("transaction_event_code") == "T0200" and original and not payer:
+            paid = original["transaction_info"]["transaction_amount"]
+            payer = f"{_payer(original)} · paid {paid['currency_code']} {float(paid['value']):,.2f}"
         amount = float(info["transaction_amount"]["value"]) + float(info.get("fee_amount", {}).get("value", 0))
         rows.append({
             "when": info["transaction_initiation_date"],
@@ -142,7 +158,7 @@ def create_order(value, currency, return_url, cancel_url, intent="CAPTURE"):
         "intent": intent,
         "purchase_units": [{"amount": {"currency_code": currency, "value": value}, "description": "Holding deposit"}],
         "payment_source": {"paypal": {"experience_context": {
-            "brand_name": "Credit Passport",
+            "brand_name": "Landed",
             "shipping_preference": "NO_SHIPPING",
             "user_action": "PAY_NOW",
             "return_url": return_url,
